@@ -45,7 +45,11 @@ namespace learingASP.Controllers
                 return this.ToProblem(result);
             }
 
-            return Ok(result.Value);
+            return CreatedAtAction(
+              nameof(GetEmployee),
+              new { id = result.Value.Id },
+              result.Value
+          );
         }
 
 
